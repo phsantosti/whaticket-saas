@@ -22,9 +22,9 @@ Woocommerce 🇧🇷 | Maanabee 🐝 = https://chat.whatsapp.com/IoF2w6QOlfv0URj
 Whaticket 🇧🇷 | Maanabee 🐝 = https://chat.whatsapp.com/L8ZyrNrSPsL9rWiEIYugFx</br>
 Websockets 🇧🇷 | Maanabee 🐝 = https://chat.whatsapp.com/Eq96C3HC02oAN4vnwOCJK3</br>
 Press Ticket 🇧🇷 | Maanabee 🐝 = https://chat.whatsapp.com/E6BoPvYnfcLJiFlkQIJyZ3</br>
-n8n 🇧🇷 | Maanabee 🐝 = https://chat.whatsapp.com/LrFBl7ctaPS4FUXJ1Nzzco
-Baileys 🇧🇷 | Maanabee 🐝 = https://chat.whatsapp.com/Eg17r46MsM1JC6skV4vGqe
-AppSmith 🇧🇷 | Maanabee 🐝 = https://chat.whatsapp.com/EdD4Qdcm1wSLl7W3ModO53
-Typebot 🇧🇷 | Maanabee 🐝 = https://chat.whatsapp.com/FlRFuz6ObTaEXwCPTJnk6e
-
-****************************************************
+n8n 🇧🇷 | Maanabee 🐝 = https://chat.whatsapp.com/LrFBl7ctaPS4FUXJ1Nzzco</br>
+Baileys 🇧🇷 | Maanabee 🐝 = https://chat.whatsapp.com/Eg17r46MsM1JC6skV4vGqe</br>
+AppSmith 🇧🇷 | Maanabee 🐝 = https://chat.whatsapp.com/EdD4Qdcm1wSLl7W3ModO53</br>
+Typebot 🇧🇷 | Maanabee 🐝 = https://chat.whatsapp.com/FlRFuz6ObTaEXwCPTJnk6e</br>
+</br>
+****************************************************</br>
