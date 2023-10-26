@@ -1491,8 +1491,10 @@ const handleMessage = async (
       order: [["createdAt", "DESC"]],
     });
 
-    if (unreadMessages === 0 && whatsapp.complationMessage && formatBody(whatsapp.complationMessage, contact).trim().toLowerCase() === lastMessage.body.trim().toLowerCase()) {
-        return;
+    if(lastMessage){
+      if (unreadMessages === 0 && whatsapp.complationMessage && formatBody(whatsapp.complationMessage, contact).trim().toLowerCase() === lastMessage.body.trim().toLowerCase()) {
+          return;
+      }
     }
 
     const ticket = await FindOrCreateTicketService(contact, wbot.id!, unreadMessages, companyId, groupContact);
