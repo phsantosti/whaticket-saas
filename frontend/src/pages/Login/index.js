@@ -10,6 +10,12 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import { Visibility, VisibilityOff } from '@material-ui/icons';
+
+import {
+	InputAdornment,
+	IconButton
+} from '@material-ui/core';
 
 import { i18n } from "../../translate/i18n";
 
@@ -54,6 +60,7 @@ const Login = () => {
 	const classes = useStyles();
 
 	const [user, setUser] = useState({ email: "", password: "" });
+	const [showPassword, setShowPassword] = useState(false);
 
 	const { handleLogin } = useContext(AuthContext);
 
@@ -97,7 +104,19 @@ const Login = () => {
 						fullWidth
 						name="password"
 						label={i18n.t("login.form.password")}
-						type="password"
+						type={showPassword ? 'text' : 'password'}
+						InputProps={{
+							endAdornment: (
+								<InputAdornment position="end">
+								<IconButton
+									aria-label="toggle password visibility"
+									onClick={() => setShowPassword((e) => !e)}
+								>
+									{showPassword ? <VisibilityOff /> : <Visibility />}
+								</IconButton>
+								</InputAdornment>
+							)
+						}}
 						id="password"
 						value={user.password}
 						onChange={handleChangeInput}

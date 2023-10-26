@@ -19,8 +19,11 @@ import {
 	InputLabel,
 	MenuItem,
 	Select,
+	InputAdornment,
+	IconButton
 } from "@material-ui/core";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import { LockOutlinedIcon, Visibility, VisibilityOff } from '@material-ui/icons';
+
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
@@ -84,6 +87,7 @@ const SignUp = () => {
 	}
 
 	const initialState = { name: "", email: "", password: "", planId: "", };
+	const [showPassword, setShowPassword] = useState(false);
 
 	const [user] = useState(initialState);
 	const dueDate = moment().add(3, "day").format();
@@ -176,7 +180,19 @@ const SignUp = () => {
 										error={touched.password && Boolean(errors.password)}
 										helperText={touched.password && errors.password}
 										label={i18n.t("signup.form.password")}
-										type="password"
+										type={showPassword ? 'text' : 'password'}
+										InputProps={{
+											endAdornment: (
+												<InputAdornment position="end">
+												<IconButton
+													aria-label="toggle password visibility"
+													onClick={() => setShowPassword((e) => !e)}
+												>
+													{showPassword ? <VisibilityOff /> : <Visibility />}
+												</IconButton>
+												</InputAdornment>
+											)
+										}}
 										id="password"
 										autoComplete="current-password"
 										required
