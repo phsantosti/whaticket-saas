@@ -5,25 +5,25 @@ import { logger } from "../../utils/logger";
 
 const formData: FormData = new FormData();
 
+const apiBaseUrl = "https://graph.facebook.com/v18.0/";
+
 const apiBase = (token: string) =>
   axios.create({
-    baseURL: "https://graph.facebook.com/v13.0/",
+    baseURL: apiBaseUrl,
     params: {
       access_token: token
     }
   });
 
 export const getAccessToken = async (): Promise<string> => {
-  const { data } = await axios.get(
-    "https://graph.facebook.com/v13.0/oauth/access_token",
-    {
-      params: {
-        client_id: process.env.FACEBOOK_APP_ID,
-        client_secret: process.env.FACEBOOK_APP_SECRET,
-        grant_type: "client_credentials"
-      }
+  const url = apiBaseUrl + "oauth/access_token";
+  const { data } = await axios.get(url,{
+    params: {
+      client_id: process.env.FACEBOOK_APP_ID,
+      client_secret: process.env.FACEBOOK_APP_SECRET,
+      grant_type: "client_credentials"
     }
-  );
+  });
 
   return data.access_token;
 };
@@ -162,9 +162,9 @@ export const getPageProfile = async (
 
 export const profilePsid = async (id: string, token: string): Promise<any> => {
   try {
-    const { data } = await axios.get(
-      `https://graph.facebook.com/v13.0/${id}?access_token=${token}`
-    );
+    const url = apiBaseUrl + id + "?access_token=" + token;
+
+    const { data } = await axios.get(url);
     return data;
   } catch (error) {
     console.log(error);
@@ -174,8 +174,8 @@ export const profilePsid = async (id: string, token: string): Promise<any> => {
 
 export const subscribeApp = async (id: string, token: string): Promise<any> => {
   try {
-    const { data } = await axios.post(
-      `https://graph.facebook.com/v13.0/${id}/subscribed_apps?access_token=${token}`,
+    const url = apiBaseUrl + id + "/subscribed_apps?access_token=" + token;
+    const { data } = await axios.post(url,
       {
         subscribed_fields: [
           "messages",
@@ -197,9 +197,8 @@ export const unsubscribeApp = async (
   token: string
 ): Promise<any> => {
   try {
-    const { data } = await axios.delete(
-      `https://graph.facebook.com/v13.0/${id}/subscribed_apps?access_token=${token}`
-    );
+    const url = apiBaseUrl + id + "/subscribed_apps?access_token=" + token;
+    const { data } = await axios.delete(url);
     return data;
   } catch (error) {
     throw new Error("ERR_UNSUBSCRIBING_PAGE_TO_MESSAGE_WEBHOOKS");
@@ -226,7 +225,7 @@ export const getAccessTokenFromPage = async (
     if(!token) throw new Error("ERR_FETCHING_FB_USER_TOKEN");
 
     const data = await axios.get(
-      "https://graph.facebook.com/v13.0/oauth/access_token",
+      "https://graph.facebook.com/v18.0/oauth/access_token",
       {
         params: {
           client_id: process.env.FACEBOOK_APP_ID,
@@ -249,7 +248,7 @@ export const removeApplcation = async (
   token: string
 ): Promise<void> => {
   try {
-    await axios.delete(`https://graph.facebook.com/v13.0/${id}/permissions`, {
+    await axios.delete(`https://graph.facebook.com/v18.0/${id}/permissions`, {
       params: {
         access_token: token
       }

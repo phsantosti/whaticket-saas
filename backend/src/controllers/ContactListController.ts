@@ -14,6 +14,7 @@ import ContactList from "../models/ContactList";
 
 import AppError from "../errors/AppError";
 import { ImportContacts } from "../services/ContactListService/ImportContacts";
+import Contact from "../models/Contact";
 
 type IndexQuery = {
   searchParam: string;
@@ -69,6 +70,29 @@ export const store = async (req: Request, res: Response): Promise<Response> => {
   });
 
   return res.status(200).json(record);
+};
+
+export const storeExternal = async (req: Request, res: Response): Promise<Response> => {
+  const { companyId } = req.params;
+  const data = req.body;
+
+  data.companyId = companyId;
+  data.number = data.whatsapp;
+
+  const contactSingleCreateResponse = await Contact.findOrCreate({
+    where: {
+      number: data.number,
+      companyId: companyId
+    },
+    defaults:{
+      name: data.name,
+      number: data.number,
+      email: data.email,
+      companyId: Number(companyId)
+    }
+  });
+
+  return res.status(200).json(contactSingleCreateResponse);
 };
 
 export const show = async (req: Request, res: Response): Promise<Response> => {
