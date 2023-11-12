@@ -22,12 +22,11 @@ app.set("queues", {
   sendScheduledMessages
 });
 
-app.use(
-  cors({
-    credentials: true,
-    origin: process.env.FRONTEND_URL
-  })
-);
+app.use(cors({
+  credentials: true,
+  origin: '*'
+}));
+
 app.use(cookieParser());
 app.use(express.json());
 app.use(Sentry.Handlers.requestHandler());
