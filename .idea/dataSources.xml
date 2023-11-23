@@ -9,5 +9,21 @@
       <jdbc-url>jdbc:postgresql://ticket.cenproconcursos.com.br:5432/postgres</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="atendimento.zapmundial.com.br" uuid="b2adfa7f-2853-47f1-93ac-9f11fda1cf05">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <remarks>atendimento.zapmundial.com.br</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://atendimento.zapmundial.com.br:5432/ticketzapmundial</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="ticket.zapspace.com.br" uuid="63a20b45-b46d-4a40-98a7-13e94ec07c11">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <remarks>ticket.zapspace.com.br</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://ticket.zapspace.com.br:5432/ticketzapspace</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
