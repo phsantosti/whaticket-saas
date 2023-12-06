@@ -25,5 +25,13 @@
       <jdbc-url>jdbc:postgresql://ticket.zapspace.com.br:5432/ticketzapspace</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="ticket.bolsamaisbrasil.com.br" uuid="b79448a0-f114-43a2-96ac-58626b03ced2">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <remarks>ticket.bolsamaisbrasil.com.br</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://ticket.bolsamaisbrasil.com.br:5432/postgres</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
