@@ -161,8 +161,7 @@ const SendWhatsAppMedia = async ({
       };
     } else {
       options = {
-        image: fs.readFileSync(pathMedia),
-        caption: body
+        image: fs.readFileSync(pathMedia)
       };
     }
 
